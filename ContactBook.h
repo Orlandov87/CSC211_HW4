@@ -8,8 +8,9 @@ class ContactBook {
     private:
         string ownerLastName;
         string ownerFirstName;
-        Contact contactBook[10];
+        Contact* contactBook;
         int bookSize;
+        int searchContact(string fName, string lName);
 
     public:
         ContactBook();
@@ -19,14 +20,11 @@ class ContactBook {
         string getOwnerFirstName();
         
         void setOwnerLastName(string lName);
-        void setOwnerFirstname(string fName);
+        void setOwnerFirstName(string fName);
 
         int addNewContact(Contact contact);
-        //MARK: Check Point
-        //TODO: Define these functions
-        void deleteContact();
-        void displayContactInfo();
-        void updateContactInfo();
+        void deleteContact(string fName, string lName);
+        void displayContactInfo(string fName, string lName);
+        void updateContactInfo(string fName, string lName);
         void displayAllContacts();
-
 };

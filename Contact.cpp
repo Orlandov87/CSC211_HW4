@@ -57,7 +57,7 @@ void Contact::setPhoneNumber(string phoneNumber) {
     if(validatePhone(phoneNumber)) {
         this -> phoneNumber = phoneNumber;
     } else {
-        std::cout << "Invalid phone number format." ; 
+        std::cout << " *** INVALID PHONE NUMBER ***" ; 
     }
 }
 
@@ -65,7 +65,7 @@ void Contact::setEmail(string email) {
     if (validateEmail(email)) {
         this -> email = email;
     } else {
-        cout << "Invalid Email format.\n";
+        cout << " *** INVALID EMAIL FORMAT ***\n";
     }
 }
 
@@ -74,33 +74,33 @@ void Contact::inputData() {
     bool validPhone = false, validEmail = false;
     //bool validPhone = false, validEmail = false;
 
-    cout << "Please enter first name: ";
+    cout << " Enter new contact first name: ";
     cin >> fName;
-    cout << "Please enter last name: ";
+    cout << " Enter new contact last name: ";
     cin >> lName;
-    cout << "Please enter your address: ";
+    cout << " Enter new contact address: ";
     address.input();
     //getline(cin >> ws, address);
     do {
-        cout << "Please enter your phone number without any special characters: ";
+        cout << " Enter new contact phone number without any special characters: ";
         cin >> phoneNumber;
 
         if (validatePhone(phoneNumber)) {
             validPhone = true;
         } else {
-            cout << "Not valid phone number\n";
+            cout << " *** INVALID PHONE NUMBER ***\n";
         }
         
     } while(!validPhone);
 
     do {
-        cout << "Please enter an Email: ";
+        cout << " Enter new contact Email: ";
         cin >> email;
 
         if (validateEmail(email)) {
             validEmail = true;
         } else {
-            cout << "Not valid email.\n";
+            cout << " *** NOT VALID EMAIL ***\n";
         }
     } while(!validEmail);
 
