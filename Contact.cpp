@@ -27,6 +27,14 @@ Contact::Contact(string fName, string lName, Address address, string phoneNumber
     setEmail(email);
 }
 
+Contact::Contact(const Contact &other) {
+    fName = other.fName;
+    lName = other.lName;
+    address = other.address;
+    phoneNumber = other.phoneNumber;
+    email = other.email;
+}
+
 bool Contact::validateEmail(string email) { 
     string regStr = "([a-zA-Z]+)([_.a-z0-9]*)([a-z0-9]+)(@)([a-z]+)([.a-z]+)([a-z]+)";
     if (regex_match(email, regex(regStr))) {

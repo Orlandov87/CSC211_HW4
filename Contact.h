@@ -19,6 +19,7 @@ class Contact {
     public: 
         Contact();
         Contact(string fName, string lName, Address address, string phoneNumber, string email);
+        Contact(const Contact& other);
         string getFirstName();
         string getLastName();
         string getAddress();

@@ -15,13 +15,8 @@ ContactBook::ContactBook(string lName, string fName) {
     bookSize = 0;
 }
 
-string ContactBook::getOwnerLastName() {
-    return ownerLastName;
-}
-
-string ContactBook::getOwnerFirstName() {
-    return ownerFirstName;
-}
+string ContactBook::getOwnerLastName() { return ownerLastName; }
+string ContactBook::getOwnerFirstName() { return ownerFirstName; }
 
 void ContactBook::setOwnerLastName(string lName) {
     ownerLastName = lName;
@@ -45,10 +40,12 @@ void ContactBook::deleteContact(string fName, string lName) {
     int index;
     index = searchContact(fName, lName);
     if (index == -1) {
-        std::cout << " ** User not found ** " << std::endl;
+        std::cout << "\n *** NO SUCH USER *** \n" << std::endl;
     } else {
-        contactBook[index] = contactBook[bookSize];
+        //std::memcpy(&contactBook[index], &contactBook[bookSize], sizeof(Contact));
+        //contactBook[index];
         bookSize--;
+        std::cout << "\n - USER DELETED - \n" << std::endl;
     }
 }
 
@@ -57,7 +54,7 @@ void ContactBook::displayContactInfo(string fName, string lName) {
     index = searchContact(fName, lName);
 
     if (index == -1) {
-        std::cout << " ** User not found ** " << std::endl;
+        std::cout << "\n *** NO SUCH USER *** \n" << std::endl;
     } else {
         contactBook[index].printInfo();
     }
@@ -75,7 +72,7 @@ void ContactBook::displayAllContacts() {
     if (bookSize == 0) {
         std::cout << "*** NO CONTACTS ***\n" << std::endl;
     } else {
-        std::cout << " -- Contact Book -- " << std::endl;
+        std::cout << " --- Contact Book --- " << std::endl;
         for (int i = 0; i < bookSize; i++) {
             contactBook[i].printInfo();
             cout << std::endl;
