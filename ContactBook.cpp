@@ -42,8 +42,8 @@ void ContactBook::deleteContact(string fName, string lName) {
     if (index == -1) {
         std::cout << "\n *** NO SUCH USER *** \n" << std::endl;
     } else {
-        //std::memcpy(&contactBook[index], &contactBook[bookSize], sizeof(Contact));
-        //contactBook[index];
+        Contact* temp = &contactBook[bookSize-1];
+        contactBook[index] = *temp;
         bookSize--;
         std::cout << "\n - USER DELETED - \n" << std::endl;
     }
